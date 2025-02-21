@@ -1,0 +1,46 @@
+{
+  "name": "@typeme/core",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "napi": {
+    "name": "typeme",
+    "triples": {
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-linux-android",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-unknown-linux-musl",
+        "aarch64-pc-windows-msvc",
+        "armv7-unknown-linux-gnueabihf",
+        "armv7-unknown-linux-musleabihf",
+        "x86_64-unknown-linux-musl",
+        "x86_64-unknown-freebsd",
+        "i686-pc-windows-msvc",
+        "armv7-linux-androideabi",
+        "universal-apple-darwin",
+        "riscv64gc-unknown-linux-gnu"
+      ]
+    }
+  },
+  "scripts": {
+    "debug": "node debug.js",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "universal": "napi universal",
+    "version": "napi version"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "packageManager": "pnpm@9.15.5",
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4"
+  }
+}
