@@ -1,4 +1,4 @@
-const { schemaToTypescript } = require('./index')
+import { schemaToTypescript } from './index.cjs'
 
 const schema = {
   "type": "object",

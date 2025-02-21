@@ -4,4 +4,4 @@
 *.node
 
 index.d.ts
-index.js
+index.cjs

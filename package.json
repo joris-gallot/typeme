@@ -1,7 +1,7 @@
 {
   "name": "@typeme/core",
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
   "engines": {
@@ -29,8 +29,8 @@
   },
   "scripts": {
     "debug": "node debug.js",
-    "build": "napi build --platform --release",
-    "build:debug": "napi build --platform",
+    "build": "napi build --js index.cjs --platform --release",
+    "build:debug": "napi build --js index.cjs --platform",
     "prepublishOnly": "napi prepublish -t npm",
     "universal": "napi universal",
     "version": "napi version"
