@@ -280,6 +280,18 @@ fn schema_to_typescript_expressions<T: SchemaLike>(
                         link: None,
                     });
                 }
+                SchemaKind::Type(Type::Integer(_)) => {
+                    expressions.push(Expression {
+                        types: vec![ObjectOrPrimitiveOrRef::PrimitiveProperty(
+                            PrimitiveProperty {
+                                primitive_type: PrimitiveType::Number,
+                                enumeration: vec![],
+                            },
+                        )],
+                        is_array: is_array,
+                        link: None,
+                    });
+                }
                 SchemaKind::Type(Type::Boolean(_)) => {
                     expressions.push(Expression {
                         types: vec![ObjectOrPrimitiveOrRef::PrimitiveProperty(
@@ -405,7 +417,8 @@ mod tests {
                 "title": { "type": "string" },
                 "author": { "type": "string" },
                 "publishedDate": { "type": "string", "format": "date" },
-                "rating": { "type": "number", "format": "float" }
+                "rating": { "type": "number", "format": "float" },
+                "age": { "type": "integer" }
             }
         }
         "#;
@@ -421,6 +434,7 @@ mod tests {
   author?: string;
   publishedDate?: string;
   rating?: number;
+  age?: number;
 };"##;
         assert_eq!(type_interface.to_string(), expected.to_string());
     }
