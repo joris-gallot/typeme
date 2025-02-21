@@ -5,13 +5,6 @@ use openapiv3::Schema;
 mod json_schema_to_typescript;
 use serde_json::Value;
 
-#[napi(object)]
-#[derive(Default)]
-pub struct SchemaInput {
-    pub reference: Option<String>,
-    pub schema: Option<String>,
-}
-
 #[napi]
 pub fn schema_to_typescript(env: Env, name: String, schema_input: JsObject) -> Result<String> {
     let schema_json = unsafe { js_object_to_serde_value(env, schema_input)? };
