@@ -360,18 +360,6 @@ fn schema_to_typescript_expressions<T: SchemaLike>(
                 SchemaKind::Type(Type::Integer(_)) => {
                     expressions.push(get_number_expression(is_array));
                 }
-                SchemaKind::Type(Type::Integer(_)) => {
-                    expressions.push(Expression {
-                        types: vec![ObjectOrPrimitiveOrRef::PrimitiveProperty(
-                            PrimitiveProperty {
-                                primitive_type: PrimitiveType::Number,
-                                enumeration: vec![],
-                            },
-                        )],
-                        is_array: is_array,
-                        link: None,
-                    });
-                }
                 SchemaKind::Type(Type::Boolean(_)) => {
                     expressions.push(Expression {
                         types: vec![ObjectOrPrimitiveOrRef::PrimitiveProperty(
