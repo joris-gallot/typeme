@@ -501,7 +501,8 @@ mod tests {
         let schema: Schema =
             serde_json::from_str(schema_json).expect("Could not deserialize schema");
 
-        let type_interface = schema_to_typescript("EmptyObject", &ReferenceOr::Item(schema));
+        let type_interface =
+            schema_to_typescript("EmptyObject".to_string(), ReferenceOr::Item(schema));
 
         let expected = r##"type EmptyObject = {
   metadata?: {};
@@ -964,7 +965,8 @@ mod tests {
         let schema: Schema =
             serde_json::from_str(schema_json).expect("Could not deserialize schema");
 
-        let type_interface = schema_to_typescript("MixedValue", &ReferenceOr::Item(schema));
+        let type_interface =
+            schema_to_typescript("MixedValue".to_string(), ReferenceOr::Item(schema));
 
         let expected = r##"type MixedValue = {
   key: string;
@@ -1027,7 +1029,8 @@ mod tests {
         let schema: Schema =
             serde_json::from_str(schema_json).expect("Could not deserialize schema");
 
-        let type_interface = schema_to_typescript("MixedValue", &ReferenceOr::Item(schema));
+        let type_interface =
+            schema_to_typescript("MixedValue".to_string(), ReferenceOr::Item(schema));
 
         let expected = r##"type MixedValue = {
   key: string;
